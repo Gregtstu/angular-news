@@ -1,0 +1,20 @@
+<nav class="navbar">
+
+  <ul>
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <a [routerLink]="['/loyaut/news']">All news</a>
+    </li>
+    <li routerLinkActive="active"><a [routerLink]="['/loyaut/create']">Create news</a></li>
+    <li routerLinkActive="active"><a [routerLink]="['/loyaut/favorite']">Favorite news</a></li>
+  </ul>
+
+  <ul>
+    <li routerLinkActive="active"><a [routerLink]="['/login']">Logout</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="card">
+    <router-outlet></router-outlet>
+  </div>
+</div>

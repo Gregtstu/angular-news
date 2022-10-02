@@ -1,0 +1,68 @@
+<form [formGroup]="signUpForm">
+  <mat-vertical-stepper class="mat-elevation-z8" [linear]="false" #stepper>
+    <mat-step>
+      <ng-template matStepLabel>Шаг 1</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Введите Ваше имя" formControlName="name" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Далее</button>
+      </div>
+    </mat-step>
+    <mat-step>
+
+      <ng-template matStepLabel>Шаг 2</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Введите вашу фамилию" formControlName="secondName" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Назад</button>
+        <button mat-button matStepperNext>Далее</button>
+      </div>
+
+    </mat-step>
+    <mat-step>
+
+      <ng-template matStepLabel>Шаг 3</ng-template>
+      <mat-form-field>
+        <input type="email" matInput formControlName="email"  [errorStateMatcher]="matcher"
+           placeholder="Введите Вашу почту">
+    <mat-hint>Почта введена коректно!</mat-hint>
+
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Данная почтна <strong>не корретна</strong>
+    </mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Назад</button>
+        <button mat-button matStepperNext>Далее</button>
+      </div>
+
+    </mat-step>
+    <mat-step>
+
+      <ng-template matStepLabel>Шаг 4</ng-template>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Придумайте пароль" formControlName="password" required
+          [type]="hide ? 'password' : 'text'">
+        <button type="submit" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Назад</button>
+        <button mat-button matStepperNext>Далее</button>
+      </div>
+
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Шаг 5</ng-template>
+
+      <div>
+        <button mat-button matStepperPrevious>Назад</button>
+        <button type="button" (click)="signUp()" mat-button>Зарегистрироваться</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</form>

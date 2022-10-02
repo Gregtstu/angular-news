@@ -1,0 +1,25 @@
+<mat-card class="example-card mat-elevation-z8" >
+  <!-- class="mat-elevation-z8" -->
+  <form [formGroup]="loginForm" ><mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Введите Вашу почту</mat-label>
+    <input formControlName="email" type="email" matInput placeholder="Введите Вашу почту">
+
+  </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Введите Ваш пароль</mat-label>
+      <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Введите Ваш пароль">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div class="btns">
+      <button (click)="login()" mat-raised-button color="primary" [disabled]="loginForm.invalid" >Войти</button>
+      <button [routerLink]="['/signup']" mat-raised-button color="accent" >Зарегистрироваться</button>
+    </div>
+  </form>
+</mat-card>
+
+
+

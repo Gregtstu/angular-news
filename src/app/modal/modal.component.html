@@ -1,0 +1,18 @@
+<form class="example-form" [formGroup]="createNewForm">
+  <mat-form-field  class="example-full-width title" appearance="fill">
+    <mat-label>Article title</mat-label>
+    <input  formControlName="title" matInput placeholder="Title">
+  </mat-form-field>
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label> Country </mat-label>
+      <input formControlName="country" matInput placeholder="Country">
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>  Link  </mat-label>
+      <input  formControlName="link" matInput placeholder="Link">
+    </mat-form-field></td>
+  </tr></table>
+  <button mat-raised-button color="primary"  (click)="editNews()">Send</button>
+</form>
+
